@@ -1,38 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Event Scheduler App
 
-## Getting Started
+## Description
 
-First, run the development server:
+Event Scheduler is a simple web application that allows users to schedule and manage events. Users can create new events, view upcoming events in a calendar format, and edit or delete existing events.
+
+This project was built using NextJS, TypeScript, for styling TailwindCSS, and it utilizes various libraries, such as react-datepicker.
+
+## Features
+
+- Create new events with a title, address, start time, and end time.
+- View upcoming events in a calendar display.
+- Edit existing events to update their details.
+- Delete events that are no longer needed.
+- Responsive design for a seamless user experience on different devices.
+
+## Installation and Usage
+
+1. Clone the repository to your local machine.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/nishad7447/NextJS_TS_event-scheduler.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+cd NextJS_TS_event-scheduler
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Install the dependencies.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+4. After installing dependencies 
+Install react-big-calendar and react-datepicker as dev-dependencies
 
-## Learn More
+```bash
+npm i --save-dev @types/react-big-calendar
+npm i --save-dev @types/react-datepicker
+```
 
-To learn more about Next.js, take a look at the following resources:
+5. Run the development server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+6. Open your browser and visit http://localhost:3000 to access the app.
 
-## Deploy on Vercel
+## How to Use
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- To create a new event, click on the "Add Event" button and fill in the event details in the form.
+- To edit an existing event, click on the "Edit" button next to the event details, make your changes, and click "Save".
+- To delete an event, click on the "Delete" button next to the event details.
+- To view upcoming events in different formats (Month, Week, Agenda), use the corresponding buttons in the "Upcoming Events" section.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+
+If you have any questions or need further assistance, feel free to contact me at tkottilnishad19@gmail.com

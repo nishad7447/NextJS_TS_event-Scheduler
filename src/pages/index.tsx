@@ -1,118 +1,109 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+"use client"
+import React, { useRef, useState } from 'react';
+import EventForm from '../components/EventForm';
+import EventCalendar from '../components/EventCalendar';
+import EventManagement from '../components/EventManagement';
+import {toast,ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+interface Event {
+  id: string;
+  title: string;
+  address: string;
+  start: Date;
+  end: Date;
 }
+
+const Home: React.FC = () => {
+  const bottomRef = useRef<HTMLHeadingElement | null>(null);
+  const [events, setEvents] = useState<Event[]>([]);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+  const handleEventCreate = (eventData: Event) => {
+    const newEvent = { ...eventData, id: Date.now().toString() };
+    setEvents([...events, newEvent]);
+    console.log(events);
+    toast.success("Successfully created new Event")
+  };
+
+  const handleEventSelect = (eventId: { id: string }) => {
+    const selectedEvent = events.find((event) => event.id === eventId.id);
+    setSelectedEvent(selectedEvent || null);
+
+    // Scroll to the bottomRef element only if selectedEvent is truthy
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleEventEdit = (editedEvent: Event) => {
+    console.log(editedEvent, 'evntEdit clg');
+    const updatedEvents = events.map((event) =>
+      event.id === editedEvent.id ? editedEvent : event
+    );
+    setEvents(updatedEvents);
+    toast.success("Successfully edited new Event")
+
+  };
+
+  const handleEventDelete = (deletedEvent: Event) => {
+    setEvents(events.filter((event) => event.id !== deletedEvent.id));
+    setSelectedEvent(null);
+    toast.error("Even deleted successfully")
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <header>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex">
+              <div className="hidden md:block">
+                <h1 className="ml-4 text-xl font-bold text-gray-900">
+                  Event Scheduler
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div className="px-4 py-8 sm:px-0">
+            <div className="flex flex-col md:flex-col gap-4 mt-8">
+              <div className="bg-white shadow sm:rounded-lg px-4 py-4 flex-1">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-lg leading-6 font-bold text-gray-900 mb-5">
+                    Upcoming Events
+                  </h2>
+                </div>
+                <EventForm onSubmit={handleEventCreate} />
+                <EventCalendar
+                  events={events}
+                  onSelectEvent={handleEventSelect}
+                />
+              </div>
+              {selectedEvent && (
+                <div className="bg-white shadow sm:rounded-lg px-4 py-4">
+                  <div className="flex items-center justify-between">
+                    <h2 ref={bottomRef} className="text-lg leading-6 font-bold text-gray-900">
+                      Event Details
+                    </h2>
+                  </div>
+                  <EventManagement
+                    event={selectedEvent}
+                    onEdit={handleEventEdit}
+                    onDelete={handleEventDelete}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </main>
+      <ToastContainer/>
+    </div>
+  );
+};
+
+export default Home;
