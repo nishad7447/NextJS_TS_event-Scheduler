@@ -1,5 +1,7 @@
 # Event Scheduler App
 
+Deployed in vercel - https://next-js-ts-event-scheduler.vercel.app/
+
 ## Description
 
 Event Scheduler is a simple web application that allows users to schedule and manage events. Users can create new events, view upcoming events in a calendar format, and edit or delete existing events.
