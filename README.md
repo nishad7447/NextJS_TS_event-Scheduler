@@ -21,7 +21,7 @@ This project was built using NextJS, TypeScript, for styling TailwindCSS, and it
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/nishad7447/NextJS_TS_event-scheduler.git
+git clone https://github.com/nishad7447/NextJS_TS_event-Scheduler.git
 ```
 
 2. Navigate to the project directory.
