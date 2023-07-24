@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import EventForm from '../components/EventForm';
 import EventCalendar from '../components/EventCalendar';
 import EventManagement from '../components/EventManagement';
@@ -52,6 +52,44 @@ const Home: React.FC = () => {
     toast.error("Even deleted successfully")
   };
 
+   // Drag and drop function for handling event drop
+   const handleEventDrop = useCallback(
+    (data: { event: Event; start: Date; end: Date }) => {
+      const { event, start, end } = data;
+
+      // Update the event in the 'myEvents' state array with the new 'start' and 'end' values
+      const updatedEvent: Event = {
+        ...event,
+        start,
+        end,
+      };
+
+      setEvents((prevEvents) =>
+        prevEvents.map((ev) => (ev.id === event.id ? updatedEvent : ev))
+      );
+    },
+    []
+  );
+
+  // Drag and drop function for handling event resize
+  const handleEventResize = useCallback(
+    (data: { event: Event; start: Date; end: Date }) => {
+      const { event, start, end } = data;
+
+      // Update the event in the 'myEvents' state array with the new 'start' and 'end' values
+      const updatedEvent: Event = {
+        ...event,
+        start,
+        end,
+      };
+
+      setEvents((prevEvents) =>
+        prevEvents.map((ev) => (ev.id === event.id ? updatedEvent : ev))
+      );
+    },
+    []
+  );
+
   return (
     <div className="min-h-screen bg-gray-100">
       <header>
@@ -81,6 +119,8 @@ const Home: React.FC = () => {
                 <EventCalendar
                   events={events}
                   onSelectEvent={handleEventSelect}
+                  onEventDrop={handleEventDrop}
+                  onEventResize={handleEventResize}
                 />
               </div>
               {selectedEvent && (
